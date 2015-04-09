@@ -7,7 +7,7 @@ from wtforms import StringField
 from wtforms.validators import Required
 from flask.ext.bootstrap import Bootstrap
 
-from which_plates.main import which_plates
+from which_plates.which_plates.main import which_plates
 
 
 app = Flask(__name__)
