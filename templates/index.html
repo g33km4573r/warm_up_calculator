@@ -15,6 +15,13 @@
 
     {{ wtf.form_field(form.plates) }}
     {{ wtf.form_field(form.goal) }}
+    <input type="submit" name="sumbit">
   </form>
+
+  {% if warm_Up %}
+    {% for set, goal in warm_up %}
+      {{ set }} {{ goal }}
+    {% endfor %}
+  {% endif %}
 {% endblock %}
 
