@@ -1,1 +1,1 @@
-web: gunicorn -b "0.0.0.0:$POST" runserver.py
+web: gunicorn app:app
