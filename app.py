@@ -3,7 +3,7 @@ from collections import Counter
 from flask import Flask, render_template, request
 from flask.ext.wtf import Form
 from flask_wtf.html5 import NumberInput
-from wtforms import StringField
+from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 from flask.ext.bootstrap import Bootstrap
 
@@ -17,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 class PlatesForm(Form):
     plates = StringField("plates", validators=[Required()])
     goal = StringField("goal", validators=[Required()])
+    submit = SubmitField('Submit')
 
 
 @app.route("/", methods=["GET", "POST"])
