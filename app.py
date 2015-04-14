@@ -15,8 +15,8 @@ Bootstrap(app)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 class PlatesForm(Form):
-    plates = StringField("plates", validators=[Required()])
-    goal = StringField("goal", validators=[Required()])
+    plates = StringField("plates", default="45,35,25,15,10,5", validators=[Required()])
+    goal = StringField("goal", default="125", validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -30,6 +30,7 @@ def index():
             [.20, .40, .60, .80, 1]
         )
         warm_up = [(plates, sum(plates)) for action, plates in warm_up if action=="l"]
+
 
     return render_template("index.html", form=PlatesForm(), warm_up=warm_up) 
 
