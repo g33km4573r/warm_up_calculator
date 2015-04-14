@@ -7,7 +7,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 from flask.ext.bootstrap import Bootstrap
 
-from which_plates.which_plates.main import which_plates
+from main import which_plates
 
 
 app = Flask(__name__)
@@ -24,17 +24,13 @@ class PlatesForm(Form):
 def index():
     warm_up = None
     if request.method == "POST":
-        # warm_up = which_plates(
-        #     float(request.form['goal']),
-        #     Counter([float(p) for p in request.form['plates'].split(',')]),
-        #     [.20, .40, .60, .80, 1]
-        # )
-        # warm_up = [(plates, sum(plates)) for action, plates in warm_up if action=="l"]
-        warm_up = [('plates', 'goal')]
-
-
+        warm_up = which_plates(
+            float(request.form['goal']),
+            Counter([float(p) for p in request.form['plates'].split(',')]),
+            [.20, .40, .60, .80, 1]
+        )
+        warm_up = [(plates, sum(plates)) for action, plates in warm_up if action=="l"]
     return render_template("index.html", form=PlatesForm(), warm_up=warm_up) 
-
 
 if __name__ == '__main__':
     PORT = int(os.environ.get("PORT", 5000))
