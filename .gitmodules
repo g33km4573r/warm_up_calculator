@@ -1,3 +1,3 @@
 [submodule "which_plates"]
 	path = which_plates
-	url = git@github.com:drewverlee/which_plates.git
+	url = https://github.com/drewverlee/which_plates.git
