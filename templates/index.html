@@ -1,24 +1,23 @@
 {% extends "bootstrap/base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block title %}Warm Up Calculator{% endblock %}
-
-{% block navbar %}
-<div class="navbar navbar-fixed-top">
-  <!-- ... -->
-</div>
+{% block head %}
+  {{ super() }} 
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 {% endblock %}
 
 {% block content %}
-{{ wtf.quick_form(form) }}
 
-  {% if warm_up %}
-    
-    <ul class="list-group">
-      {% for set, goal in warm_up %}
-        <li class="list-group-item"> {{ set }} GOAL:{{ goal }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  {{ wtf.quick_form(form) }}
+
+    {% if warm_up %}
+      <ul class="list-group">
+        {% for set, goal in warm_up %}
+          <li class="list-group-item"> {{ set }} GOAL:{{ goal }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
 {% endblock %}
 
