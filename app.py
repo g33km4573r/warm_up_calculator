@@ -16,7 +16,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 class PlatesForm(Form):
     plates = StringField("plates", default="45,35,25,15,10,5", validators=[Required()])
-    goal = StringField("goal", default="125", validators=[Required()])
+    goal = StringField("goal", default="100", validators=[Required()])
     submit = SubmitField('Submit')
 
 
