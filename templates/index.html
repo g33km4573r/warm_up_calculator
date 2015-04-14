@@ -13,10 +13,15 @@
     {{ wtf.quick_form(form) }}
   </form>
 
-  {% if warm_Up %}
-    {% for set, goal in warm_up %}
-      {{ set }} {{ goal }}
-    {% endfor %}
+  {% if warm_up %}
+    
+    <ul class="list-group">
+      {% for set, goal in warm_up %}
+        <li class="list-group-item"> {{ set }} GOAL:{{ goal }}</li>
+      {% endfor %}
+    </ul>
   {% endif %}
+
 {% endblock %}
+
 

@@ -29,7 +29,7 @@ def index():
             Counter([float(p) for p in request.form['plates'].split(',')]),
             [.20, .40, .60, .80, 1]
         )
-        warm_up = [plates for action, plates in warm_up if action=="l"]
+        warm_up = [(plates, sum(plates)) for action, plates in warm_up if action=="l"]
 
     return render_template("index.html", form=PlatesForm(), warm_up=warm_up) 
 
