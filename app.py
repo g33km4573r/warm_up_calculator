@@ -38,4 +38,4 @@ def index():
 if __name__ == '__main__':
     PORT = int(os.environ.get("PORT", 5000))
     DEBUG = bool(os.environ.get("DEBUG", False))
-    app.run(debug=DEBUG)
+    app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
