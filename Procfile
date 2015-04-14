@@ -1,1 +1,1 @@
-web: gunicorn app:app 
+web: gunicorn --pythonpath /which_plates/which_plates/ app:app 
