@@ -11,12 +11,10 @@ def  test_warm_up_calculator(browser):
     assert title.html == "Warm Up Calculator"
 
     # submit data 
-    browser.fill_form({"plates": "20,20,20,20,20", "goal": "100"})
+    browser.fill_form({"plates": "55,45,44,35,33,25,22,10,5,2.5", "goal": "225"})
     browser.find_by_name("submit").first.click()
 
-    # view results
-    second_goal = browser.find_by_id("warm-up-goal").first()
-    assert second_goal.html == "40"
+    # inspect warm up set
+    assert browser.find_by_id("list-group")
 
-    second_warm_up_set = browser.find_by_id("warm-up-set-2").first()
-    assert second_warm_up_set.html == "20, 20"
+

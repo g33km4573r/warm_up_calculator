@@ -15,8 +15,8 @@ Bootstrap(app)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 class PlatesForm(Form):
-    plates = StringField("plates", default="55,45,44,35,33,25,22,15,10,5,2.5", validators=[Required()])
-    goal = StringField("goal", default="180", validators=[Required()])
+    plates = StringField("plates", default="55,45,44,35,33,25,22,10,5,2.5", validators=[Required()])
+    goal = StringField("goal", default="225", validators=[Required()])
     submit = SubmitField('Submit')
 
 
