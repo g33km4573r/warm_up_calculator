@@ -17,6 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 class PlatesForm(Form):
     plates = StringField("plates", default="55,45,44,35,33,25,22,10,5,2.5", validators=[Required()])
     goal = StringField("goal", default="225", validators=[Required()])
+    bar = StringField("bar", default="45", validators=[Required()])
     submit = SubmitField('Submit')
 
 
@@ -26,7 +27,7 @@ def index():
     if request.method == "POST":
 
         warm_up = which_plates(
-            float(request.form['goal']),
+            (float(request.form['goal']- float(request.form['bar']))/2 ),
             Counter([float(p) for p in request.form['plates'].split(',')]),
             [.20, .40, .60, .80, 1]
         )
