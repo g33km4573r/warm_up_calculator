@@ -27,7 +27,7 @@ def index():
     if request.method == "POST":
 
         warm_up = which_plates(
-            (float(request.form['goal']- float(request.form['bar']))/2 ),
+            (float(request.form['goal'])- float(request.form['bar']))/2 ,
             Counter([float(p) for p in request.form['plates'].split(',')]),
             [.20, .40, .60, .80, 1]
         )
